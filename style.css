@@ -1,0 +1,161 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('background.jpg') no-repeat center -30px;
+    background-size: cover;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 9px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.search-box input[type="text"] {
+    border: none;
+    width: 100%;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.search-button {
+    background-color: #fc7b27;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.search-button i {
+    font-size: 20px;
+}
+
+.rating-container {
+    width: 100%;
+    text-align: center;
+}
+
+.rating-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.top-line {
+    padding-left: 40px;
+}
+
+.content-container {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 1em auto;
+    padding: 1em;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.result-item {
+    position: relative;
+}
+
+.restaurant-photo {
+    width: 10%;
+    height: auto;
+    border-radius: 4px;
+}
+
+
+.address {
+    font-size: 10pt;
+}
+
+.topics-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.topic {
+    background-color: #e0e0e0;
+    padding: 5px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+
+.pos-perct {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.thumb {
+    display: inline-block;
+    font-size: 1.5em;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.perct {
+    display: inline;
+}
+
+.rating-box {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(252, 82, 39);
+    color: white;
+    width: 50pt;
+    padding: 10px 10px;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 2em
+}
+
+.review {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1px;
+}
+
+.emoticon {
+    display: inline-block;
+    font-size: 1.5em;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.review-text {
+    display: inline;
+}

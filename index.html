@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Include FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <!-- Search bar -->
+        <div class="search-container">
+            <form action="/" method="post" class="search-form">
+                <div class="search-box">
+                    <input type="text" name="search_bar" placeholder="Search restaurants, meals..." autocomplete="off" class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div> 
+                <!-- Restaurant rating filter -->
+                <div class="rating-container">
+                    <select name="rating-select" class="rating-select">
+                        <option value="">Rating</option>
+                        <option value="1">&#9733;</option>
+                        <option value="2">&#9733;&#9733;</option>
+                        <option value="3">&#9733;&#9733;&#9733;</option>
+                        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+                        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                    </select>
+                </div>
+            </form> 
+        </div>
+    </header>
+    <main>
+        <!-- Results -->
+        {% if show_results %}
+            <h2 class="top-line">Top 20 Best Restaurants Near Philadelphia, Pennsylvania</h2>
+            {% for result in search_results %}
+                <div class="content-container">
+                    <!-- Restaurant photo, name, address, topics, pisitive rate, number of total reviews, ratings and summarized reviews-->
+                    <div class="result-item">
+                        {% if result['photo_id'] %}
+                            <img src="{{ result['photo_url'] }}" alt="{{ result['name'] }}" class="restaurant-photo">
+                        {% endif %}
+                        <h3>{{loop.index }}. {{ result['name']}}</h3>
+                        <p class="address">{{result['full_address']}}</p>
+                        <div class="topics-container">
+                            {% for topic in result['topic'] %}
+                                <span class="topic">{{ topic }}</span>
+                            {% endfor %}
+                        </div> 
+                        <div class="pos-perct" >
+                            <span class="thumb" style="font-size: 1.5em;">👍</span>
+                            <p class="perct">{{ result['positive_percentage'] }} ({{ result['review_count']}} reviews)</p>
+                        </div> 
+                        <div class="rating-box">
+                            <p>{{ result['stars'] }}</p>
+                        </div>
+                        <div class="review" >
+                            <span class="emoticon" style="font-size: 1.5em;">😊</span>
+                            <p class="review-text">{{ result['positive_summarization'] }}</p>
+                        </div>   
+                        <div class="review" >                 
+                            <span class="emoticon" style="font-size: 1.5em;">😐</span>
+                            <p class="review-text">{{ result['neutral_summarization'] }}</p>
+                        </div>   
+                        <div class="review" >                 
+                            <span class="emoticon" style="font-size: 1.5em;">😠</span>
+                            <p class="review-text">{{ result['negative_summarization'] }}</p>
+                        </div>  
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </main>
+</body>
+</html>
